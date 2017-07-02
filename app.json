@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "Rede Universitária",
+    "slug": "rede-universitaria",
+    "privacy": "public",
+    "sdkVersion": "18.0.0",
+    "packagerOpts": {
+      "assetExts": ["ttf"]
+    }
+  }
+}
