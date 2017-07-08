@@ -1,6 +1,5 @@
-import React from 'react';
 import { Text, View } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons';
+import React from 'react';
 import styles from './styles';
 
 export default class Home extends React.Component {
@@ -14,9 +13,3 @@ export default class Home extends React.Component {
     );
   }
 }
-Home.navigationOptions = {
-  drawerLabel: 'Home',
-  drawerIcon: ({ tintColor }) => (
-    <MaterialIcons name="home" size={24} color={tintColor} />
-  ),
-};
