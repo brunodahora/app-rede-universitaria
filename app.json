@@ -6,6 +6,10 @@
     "sdkVersion": "18.0.0",
     "packagerOpts": {
       "assetExts": ["ttf"]
+    },
+    "androidStatusBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#fec400"
     }
   }
 }
