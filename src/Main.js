@@ -1,10 +1,10 @@
 import React from 'react';
-import Navigator from './helpers/Navigator'
+import MainDrawerNavigator from './navigation/Navigator'
 
 export default class Main extends React.Component {
   render() {
     return (
-      <Navigator />
+      <MainDrawerNavigator />
     );
   }
 }
