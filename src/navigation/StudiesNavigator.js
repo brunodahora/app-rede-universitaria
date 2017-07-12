@@ -3,6 +3,7 @@ import { StackNavigator } from 'react-navigation';
 import Touchable from 'react-native-platform-touchable'
 import { MaterialIcons } from '@expo/vector-icons';
 import StudiesList from '../screens/StudiesList'
+import { colors } from '../helpers/Constants'
 
 export default StudiesNavigator = StackNavigator({
   StudiesList: {
@@ -13,9 +14,14 @@ export default StudiesNavigator = StackNavigator({
                   <MaterialIcons
                     name="menu"
                     size={24}
+                    color={colors.white}
                     style={{margin: 10}}
                   />
-                </Touchable>)
+                </Touchable>),
+      headerTintColor: colors.white,
+      headerStyle: {
+        backgroundColor: colors.main
+      }
     })
   },
 });
