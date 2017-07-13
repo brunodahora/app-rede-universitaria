@@ -8,6 +8,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
   },
+  centeredContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   body: {
     flex: 1,
     alignItems: 'center',
@@ -23,16 +28,21 @@ const styles = StyleSheet.create({
   },
   bodyText: {
     fontSize: 20,
-    textAlign: 'center',
     color: colors.gray,
     marginBottom: 10,
+  },
+  centerText: {
+    textAlign: 'center',
+  },
+  justifyText: {
+    textAlign: 'justify',
   },
   roundedIcon: {
     margin: 10,
     padding: 10,
     backgroundColor: colors.main,
-    borderRadius: 50
-  }
+    borderRadius: 50,
+  },
 });
 
 export default styles;
