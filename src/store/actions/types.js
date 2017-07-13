@@ -1,0 +1,2 @@
+export const UPDATE_STUDIES = 'UPDATE_STUDIES';
+export const UPDATE_GROUPS = 'UPDATE_GROUPS';
