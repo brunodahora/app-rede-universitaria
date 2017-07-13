@@ -25,15 +25,17 @@ export default class Home extends React.Component {
           <Text style={styles.headerText}>
             A Ideia da Rede
           </Text>
-          <Expo.Video
+          {/* <Expo.Video
             source={require('../assets/videos/promocional.mp4')}
             style={{
               width: Dimensions.get('window').width,
               height: Dimensions.get('window').width / 2,
             }}
             useNativeControls
+            posterSource={require('../assets/imgs/logo.png')}
+            usePoster
             resizeMode={Expo.Video.RESIZE_MODE_CONTAIN}
-          />
+          /> */}
           <View style={styles.body}>
             <MaterialIcons
               name="lightbulb-outline"
@@ -41,7 +43,7 @@ export default class Home extends React.Component {
               color={colors.white}
               style={styles.roundedIcon}
             />
-            <Text style={styles.bodyText}>
+            <Text style={[styles.bodyText, styles.centerText]}>
               A ideia da rede é promover, criar e ajudar grupos de estudantes que se reúnem nas universidades. Conheça!
             </Text>
             <MaterialIcons
@@ -50,7 +52,7 @@ export default class Home extends React.Component {
               color={colors.white}
               style={styles.roundedIcon}
             />
-            <Text style={styles.bodyText}>
+            <Text style={[styles.bodyText, styles.centerText]}>
               Visite nosso blog para ficar por dentro das novidades, ler testemunhos  e outras histórias da rede universitária.
             </Text>
             <MaterialIcons
@@ -59,7 +61,7 @@ export default class Home extends React.Component {
               color={colors.white}
               style={styles.roundedIcon}
             />
-            <Text style={styles.bodyText}>
+            <Text style={[styles.bodyText, styles.centerText]}>
               Conheça as igrejas que já estão participando da Rede, a sua Igreja também pode participar! Clique e saiba como.
             </Text>
           </View>
