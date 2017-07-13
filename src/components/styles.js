@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import { colors } from '../helpers/Constants'
+import { colors } from '../helpers/Constants';
 
 const styles = StyleSheet.create({
   container: {
@@ -9,8 +9,12 @@ const styles = StyleSheet.create({
   logo: {
     width: Dimensions.get('window').width,
     margin: 10,
-    alignSelf: 'center'
-  }
+    alignSelf: 'center',
+  },
+  listTitle: {
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
 });
 
 export default styles;
