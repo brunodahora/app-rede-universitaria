@@ -4,67 +4,30 @@ import {
   View,
   ScrollView,
   Image,
-  Dimensions,
 } from 'react-native';
-import Expo from 'expo';
-import { MaterialIcons } from '@expo/vector-icons';
 import styles from './styles';
-import { colors } from '../helpers/Constants';
 
 /* eslint-disable global-require */
-export default class About extends React.Component {
-  render() {
-    return (
-      <ScrollView>
-        <View style={styles.container}>
-          <Image
-            resizeMode="contain"
-            style={{ height: 200, margin: 10 }}
-            source={require('../assets/imgs/projetos.jpg')}
-          />
-          <Text style={styles.headerText}>
-            A Ideia da Rede
-          </Text>
-          <Expo.Video
-            source={require('../assets/videos/promocional.mp4')}
-            style={{
-              width: Dimensions.get('window').width,
-              height: Dimensions.get('window').width / 2
-            }}
-            useNativeControls
-            resizeMode={Expo.Video.RESIZE_MODE_CONTAIN}
-          />
-          <View style={styles.body}>
-            <MaterialIcons
-              name="lightbulb-outline"
-              size={50}
-              color={colors.white}
-              style={styles.roundedIcon}
-            />
-            <Text style={styles.bodyText}>
-              A ideia da rede é promover, criar e ajudar grupos de estudantes que se reúnem nas universidades. Conheça!
-            </Text>
-            <MaterialIcons
-              name="chat-bubble-outline"
-              size={50}
-              color={colors.white}
-              style={styles.roundedIcon}
-            />
-            <Text style={styles.bodyText}>
-              Visite nosso blog para ficar por dentro das novidades, ler testemunhos  e outras histórias da rede universitária.
-            </Text>
-            <MaterialIcons
-              name="school"
-              size={50}
-              color={colors.white}
-              style={styles.roundedIcon}
-            />
-            <Text style={styles.bodyText}>
-              Conheça as igrejas que já estão participando da Rede, a sua Igreja também pode participar! Clique e saiba como.
-            </Text>
-          </View>
-        </View>
-      </ScrollView>
-    );
-  }
-}
+const About = () => (
+  <ScrollView>
+    <View style={styles.container}>
+      <Image
+        resizeMode="contain"
+        style={{ height: 200, margin: 10 }}
+        source={require('../assets/imgs/logo.png')}
+      />
+      <Text style={styles.headerText}>
+        {'Missão, Valores e Visão'}
+      </Text>
+      <Text style={[styles.bodyText, styles.justifyText, { margin: 10 }]}>
+        {'A história de boa parte dos trabalhos com jovens cristãos nas universidades tem uma tendência de começar muito bem, mas com o tempo, ir enfraquecendo até os alunos que participam se formarem, ou o projeto simplesmente fechar. Salvo, claro algumas excessões.'}
+        {'\n\n'}
+        {'Hoje em algumas universidades existem diversos projetos de trabalho com jovens cristãos de diferentes denominações no mesmo campus. Entendemos que não precisamos competir no Reino de Deus, mas sim cooperar para alcançar as universidades. Uma igreja, ou até uma denominação sozinha pode fazer um trabalho muito bom. Mas diversas igrejas de denominações diferentes em unidade podem fazer um trabalho fantástico. Ao deixar um pouco de lado alguns dogmas e focar naquilo que realmente nos une.'}
+        {'\n\n'}
+        {'Por isso, a Missão da Rede Universitária é juntar jovens estudantes cristãos de diferentes denominações que estudam dentro de uma mesma universidade para gerar unidade e ao mesmo tempo para transformar a realidade das universidades com os valores que a Palavra de Deus nos apresenta. E assim mostrar um caminho ainda melhor para os estudantes cristãos e não cristãos que estão na fase da universidade para transformar a realidade das universidades em nosso país.'}
+      </Text>
+    </View>
+  </ScrollView>
+);
+
+export default About;
