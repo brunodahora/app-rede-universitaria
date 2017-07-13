@@ -21,7 +21,7 @@ class GroupsList extends Component {
 
   componentWillMount() {
     getGroups()
-      .then(groups => this.props.updateGroups(groups.data))
+      .then(groups => this.props.updateGroups(groups.data));
   }
 
   selectGroup() {
