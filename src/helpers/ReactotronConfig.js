@@ -3,7 +3,13 @@ import { reactotronRedux } from 'reactotron-redux';
 import sagaPlugin from 'reactotron-redux-saga';
 import apisaucePlugin from 'reactotron-apisauce';
 
-const reactotron = Reactotron.configure({ name: 'Rede Universitária' })
+import { NativeModules } from 'react-native';
+import url from 'url';
+
+const { hostname } = url.parse(NativeModules.SourceCode.scriptURL);
+
+const reactotron = Reactotron
+  .configure({ name: 'Rede Universitária', host: hostname })
   .useReactNative()
   .use(trackGlobalErrors())
   .use(reactotronRedux())
