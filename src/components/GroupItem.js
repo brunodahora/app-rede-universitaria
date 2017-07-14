@@ -6,9 +6,11 @@ import {
 import PropTypes from 'prop-types';
 import styles from './styles';
 
+const clearHtml = string => string.replace('&#8211;', '-');
+
 const GroupItem = props => (
-  <View style={styles.container}>
-    <Text style={styles.listTitle}>{props.group.title.rendered}</Text>
+  <View style={[styles.container, { padding: 10 }]}>
+    <Text style={styles.listTitle}>{clearHtml(props.group.title.rendered)}</Text>
   </View>
 );
 GroupItem.propTypes = {
