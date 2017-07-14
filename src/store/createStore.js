@@ -1,32 +1,32 @@
-import Reactotron from 'reactotron-react-native'
-import { applyMiddleware, compose } from 'redux'
-import createSagaMiddleware from 'redux-saga'
-import { persistStore as store, autoRehydrate } from 'redux-persist'
-import reducers from './reducers'
+import Reactotron from 'reactotron-react-native';
+import { applyMiddleware, compose } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import { persistStore as store, autoRehydrate } from 'redux-persist';
+import reducers from './reducers';
 
 export default () => {
-  const sagaMonitor = Reactotron.createSagaMonitor()
-  const sagaMiddleware = createSagaMiddleware({ sagaMonitor })
+  const sagaMonitor = Reactotron.createSagaMonitor();
+  const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
 
   if (module.hot) {
     module.hot.accept(() => {
-      const nextRootReducer = require('./reducers').default
+      const nextRootReducer = require('./reducers').default;
 
-      store.replaceReducer(nextRootReducer)
-    })
+      store.replaceReducer(nextRootReducer);
+    });
   }
 
   // todo: isso tá demasiado complexo (funções aninhadas)
   // eslint-disable-next-line
   const sagaFailMiddleware = ({ dispatch }) => next => (action) => {
     try {
-      next(action)
+      next(action);
     } catch (e) {
       setTimeout(() => {
-        throw e
-      })
+        throw e;
+      });
     }
-  }
+  };
 
   return {
     ...Reactotron.createStore(
@@ -37,5 +37,5 @@ export default () => {
       ),
     ),
     runSaga: sagaMiddleware.run,
-  }
-}
+  };
+};
