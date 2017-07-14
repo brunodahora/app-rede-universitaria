@@ -1,10 +1,6 @@
 import React from 'react';
-import MainDrawerNavigator from './navigation/Navigator'
+import MainDrawerNavigator from './navigation/Navigator';
 
-export default class Main extends React.Component {
-  render() {
-    return (
-      <MainDrawerNavigator />
-    );
-  }
-}
+const Main = () => (<MainDrawerNavigator />);
+
+export default Main;

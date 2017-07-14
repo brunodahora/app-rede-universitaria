@@ -54,9 +54,11 @@ class StudiesList extends Component {
         {!_.isEmpty(this.props.studies) &&
           <FlatList
             data={this.getList()}
-            renderItem={item => (
-              <Touchable onPress={() => selectStudy(item)}>
-                <StudyItem study={item} />
+            renderItem={data => (
+              <Touchable
+                onPress={() => this.selectStudy(data.item)}
+              >
+                <StudyItem study={data.item} />
               </Touchable>
             )}
           />

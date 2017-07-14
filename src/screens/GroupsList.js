@@ -5,18 +5,23 @@ import {
   ActivityIndicator,
   FlatList,
 } from 'react-native';
+import Touchable from 'react-native-platform-touchable';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import Reactotron from 'reactotron-react-native';
-import { updateGroups } from '../store/actions';
+import { updateGroups, selectGroup } from '../store/actions';
 import { getGroups } from '../helpers/API';
 import styles from './styles';
+
+import GroupItem from '../components/GroupItem';
 
 class GroupsList extends Component {
 
   constructor() {
     super();
     this.selectGroup = this.selectGroup.bind(this);
+    this.getList = this.getList.bind(this);
   }
 
   componentWillMount() {
@@ -24,8 +29,15 @@ class GroupsList extends Component {
       .then(groups => this.props.updateGroups(groups.data));
   }
 
-  selectGroup() {
+  getList() {
+    return this.props.groups.map(item => ({ ...item, key: item.id }));
+  }
 
+  selectGroup(group) {
+    const { navigate } = this.props.navigation;
+
+    this.props.selectGroup(group);
+    navigate('GroupDetail');
   }
 
   render() {
@@ -35,19 +47,31 @@ class GroupsList extends Component {
           <View style={styles.centeredContainer}>
             <ActivityIndicator size={'large'} />
             <Text style={[styles.bodyText, styles.centerText]}>
-              {'Carregando grupos.\n Caso demore, verifique sua internet.'}
+              {'Carregando grupos.\nCaso demore, verifique sua internet.'}
             </Text>
           </View>
         }
         {!_.isEmpty(this.props.groups) &&
-          <Text>{'Grupos'}</Text>
+          <FlatList
+            data={this.getList()}
+            renderItem={data => (
+              <Touchable
+                onPress={() => this.selectGroup(data.item)}
+              >
+                <GroupItem group={data.item} />
+              </Touchable>
+            )}
+          />
         }
       </View>
     );
   }
 }
 GroupsList.propTypes = {
-  groups: React.PropTypes.array,
+  groups: PropTypes.array,
+  updateGroups: PropTypes.func.isRequired,
+  selectGroup: PropTypes.func.isRequired,
+  navigation: PropTypes.object.isRequired,
 };
 GroupsList.defaultProps = {
   groups: [],
@@ -58,4 +82,4 @@ const mapStateToProps = ({ app }) => {
 
   return { groups };
 };
-export default connect(mapStateToProps, { updateGroups })(GroupsList);
+export default connect(mapStateToProps, { updateGroups, selectGroup })(GroupsList);
