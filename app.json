@@ -2,7 +2,8 @@
   "expo": {
     "name": "Rede Universitária",
     "slug": "rede-universitaria",
-    "privacy": "public",
+    "privacy": "unlisted",
+    "version": "0.1.0",
     "sdkVersion": "18.0.0",
     "packagerOpts": {
       "assetExts": ["ttf"]
