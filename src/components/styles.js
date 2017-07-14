@@ -4,6 +4,9 @@ import { colors } from '../helpers/Constants';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  drawerContainer: {
+    flex: 1,
     backgroundColor: colors.main,
   },
   logo: {
@@ -14,6 +17,11 @@ const styles = StyleSheet.create({
   listTitle: {
     fontWeight: 'bold',
     fontSize: 16,
+  },
+  item: {
+    margin: 10,
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
   },
 });
 
