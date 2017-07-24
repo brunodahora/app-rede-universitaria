@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
-import { colors } from '../helpers/Constants'
+import { colors } from '../helpers/Constants';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width: '100%',
     backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'flex-start',
@@ -42,6 +43,14 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: colors.main,
     borderRadius: 50,
+  },
+  searchbar: {
+    flex: 1,
+    flexDirection: 'row',
+    paddingLeft: 10,
+    paddingRight: 10,
+    alignItems: 'center',
+    justifyContent: 'flex-start',
   },
 });
 
