@@ -4,6 +4,7 @@ import { colors } from '../helpers/Constants';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width: Dimensions.get('window').width,
   },
   drawerContainer: {
     flex: 1,
