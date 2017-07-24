@@ -5,6 +5,7 @@ import Sentry from 'sentry-expo';
 import createStore from './src/store/createStore';
 import rootSaga from './src/store/sagas';
 import Reactotron from './src/helpers/ReactotronConfig';
+import { SENTRY_DSN } from './src/config';
 
 import Main from './src/Main';
 
@@ -15,7 +16,7 @@ if (typeof self === 'object') persistStore(store);
 
 export const getStore = () => store;
 
-Sentry.config('https://ba14379aab3d432cb98d7db6061d916f:3a079af9c532498d9ef9464f004a11ed@sentry.io/194916').install();
+Sentry.config(SENTRY_DSN).install();
 
 export default class App extends React.Component {
   componentDidMount() {
