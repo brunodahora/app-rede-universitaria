@@ -2,9 +2,16 @@
   "expo": {
     "name": "Rede Universitária",
     "slug": "rede-universitaria",
+    "icon": "./src/assets/imgs/logo.png",
     "privacy": "unlisted",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "sdkVersion": "18.0.0",
+    "ios": {
+      "bundleIdentifier": "org.redeuniversitaria"
+    },
+    "android": {
+      "package": "org.redeuniversitaria"
+    },
     "packagerOpts": {
       "assetExts": ["ttf"]
     },
