@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions, Platform } from 'react-native';
 import { colors } from '../helpers/Constants';
 
 const styles = StyleSheet.create({
@@ -9,6 +9,11 @@ const styles = StyleSheet.create({
   drawerContainer: {
     flex: 1,
     backgroundColor: colors.main,
+    ...Platform.select({
+      ios: {
+        paddingTop: 10,
+      },
+    }),
   },
   logo: {
     width: Dimensions.get('window').width,
