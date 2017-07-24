@@ -6,6 +6,10 @@ const api = create({
   headers: { Authorization: ACCESS_TOKEN },
 });
 
-export const getStudies = () => api.get('/posts');
+export const getStudies = () => api.get('/posts?per_page=100');
 
-export const getGroups = () => api.get('/job_listing');
+export const getGroups = () => api.get('/job_listing?per_page=100');
+
+export const getStudiesPaginated = page => api.get(`/posts?per_page=100&page=${page}`);
+
+export const getGroupsPaginated = page => api.get(`/job_listing?per_page=100&page=${page}`);
