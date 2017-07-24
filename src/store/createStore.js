@@ -5,9 +5,15 @@ import { persistStore as store, autoRehydrate } from 'redux-persist';
 import reducers from './reducers';
 
 export default () => {
-  const sagaMonitor = Reactotron.createSagaMonitor();
-  const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
+  let sagaMiddleware = createSagaMiddleware();
 
+  /* eslint-disable no-undef */
+  if (__DEV__) {
+    const sagaMonitor = Reactotron.createSagaMonitor();
+    sagaMiddleware = createSagaMiddleware({ sagaMonitor });
+  }
+
+  /* eslint-disable global-require */
   if (module.hot) {
     module.hot.accept(() => {
       const nextRootReducer = require('./reducers').default;
