@@ -8,7 +8,7 @@ import HTMLView from 'react-native-htmlview';
 import styles from './styles';
 
 const StudyItem = props => (
-  <View style={[styles.container, styles.item]}>
+  <View style={[styles.container, { padding: 10 }]}>
     <Text style={styles.listTitle}>{props.study.title.rendered}</Text>
     <HTMLView value={props.study.excerpt.rendered.replace(new RegExp('\\n$'), '')} />
   </View>
