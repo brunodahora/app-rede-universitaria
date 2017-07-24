@@ -11,6 +11,18 @@
     "androidStatusBar": {
       "barStyle": "light-content",
       "backgroundColor": "#fec400"
+    },
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "sentry-expo/upload-sourcemaps",
+          "config": {
+            "organization": "rede-universitaria",
+            "project": "app-rede-universitaria",
+            "authToken": "2f6a794c0aca42868979f0b0b2adb004d153db13d2654022b58e18e9a61c1e60"
+          }
+        }
+      ]
     }
   }
 }
