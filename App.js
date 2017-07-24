@@ -11,7 +11,7 @@ import Main from './src/Main';
 const store = createStore();
 
 store.runSaga(rootSaga);
-persistStore(store);
+if (typeof self === 'object') persistStore(store);
 
 export const getStore = () => store;
 
@@ -27,7 +27,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <Provider store={createStore()}>
+      <Provider store={store}>
         <Main />
       </Provider>
     );
