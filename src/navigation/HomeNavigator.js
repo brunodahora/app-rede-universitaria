@@ -20,7 +20,7 @@ export default HomeNavigator = StackNavigator({
                 </Touchable>),
       headerTintColor: colors.white,
       headerStyle: {
-        backgroundColor: colors.main
+        backgroundColor: colors.primary
       }
     })
   },

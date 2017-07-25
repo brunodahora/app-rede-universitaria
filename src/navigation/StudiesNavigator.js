@@ -23,7 +23,7 @@ const StudiesNavigator = StackNavigator({
       ),
       headerTintColor: colors.white,
       headerStyle: {
-        backgroundColor: colors.main,
+        backgroundColor: colors.primary,
       },
     }),
   },
@@ -33,7 +33,7 @@ const StudiesNavigator = StackNavigator({
       title: 'Estudo',
       headerTintColor: colors.white,
       headerStyle: {
-        backgroundColor: colors.main,
+        backgroundColor: colors.primary,
       },
     }),
   },

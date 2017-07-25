@@ -22,7 +22,7 @@ const AboutNavigator = StackNavigator({
       ),
       headerTintColor: colors.white,
       headerStyle: {
-        backgroundColor: colors.main,
+        backgroundColor: colors.primary,
       },
     }),
   },

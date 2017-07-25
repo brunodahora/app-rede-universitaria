@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   },
   drawerContainer: {
     flex: 1,
-    backgroundColor: colors.main,
+    backgroundColor: colors.primary,
     ...Platform.select({
       ios: {
         paddingTop: 10,

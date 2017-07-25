@@ -23,7 +23,7 @@ const GroupsNavigator = StackNavigator({
       ),
       headerTintColor: colors.white,
       headerStyle: {
-        backgroundColor: colors.main,
+        backgroundColor: colors.primary,
       },
     }),
   },
@@ -33,7 +33,7 @@ const GroupsNavigator = StackNavigator({
       title: 'Grupo',
       headerTintColor: colors.white,
       headerStyle: {
-        backgroundColor: colors.main,
+        backgroundColor: colors.primary,
       },
     }),
   },
