@@ -2,7 +2,7 @@
   "expo": {
     "name": "Rede Universitária",
     "slug": "rede-universitaria",
-    "icon": "./src/assets/imgs/logo.png",
+    "icon": "./src/assets/imgs/app_logo.png",
     "privacy": "unlisted",
     "version": "1.0.0",
     "sdkVersion": "18.0.0",
