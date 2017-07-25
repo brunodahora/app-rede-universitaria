@@ -6,6 +6,16 @@
     "privacy": "unlisted",
     "version": "1.0.0",
     "sdkVersion": "18.0.0",
+    "primaryColor": "#FFC107",
+    "androidStatusBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#c79100"
+    },
+    "loading": {
+      "backgroundColor": "#FFC107",
+      "icon": "./src/assets/imgs/logo.png",
+      "hideExponentText": true
+    },
     "ios": {
       "bundleIdentifier": "org.redeuniversitaria"
     },
@@ -14,10 +24,6 @@
     },
     "packagerOpts": {
       "assetExts": ["ttf"]
-    },
-    "androidStatusBar": {
-      "barStyle": "light-content",
-      "backgroundColor": "#fec400"
     },
     "hooks": {
       "postPublish": [
