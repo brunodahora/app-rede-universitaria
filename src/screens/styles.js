@@ -41,11 +41,10 @@ const styles = StyleSheet.create({
   roundedIcon: {
     margin: 10,
     padding: 10,
-    backgroundColor: colors.main,
+    backgroundColor: colors.primary,
     borderRadius: 50,
   },
   searchbar: {
-    flex: 1,
     flexDirection: 'row',
     paddingLeft: 10,
     paddingRight: 10,
