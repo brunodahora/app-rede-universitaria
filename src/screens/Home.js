@@ -4,9 +4,7 @@ import {
   View,
   ScrollView,
   Image,
-  Dimensions,
 } from 'react-native';
-import Expo from 'expo';
 import { MaterialIcons } from '@expo/vector-icons';
 import styles from './styles';
 import { colors } from '../helpers/Constants';
