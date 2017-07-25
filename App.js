@@ -1,4 +1,5 @@
 import React from 'react';
+import { AsyncStorage } from 'react-native';
 import { Provider } from 'react-redux';
 import { persistStore } from 'redux-persist';
 import Sentry from 'sentry-expo';
@@ -12,7 +13,7 @@ import Main from './src/Main';
 const store = createStore();
 
 store.runSaga(rootSaga);
-if (typeof self === 'object') persistStore(store);
+persistStore(store, { storage: AsyncStorage }, () => {});
 
 export const getStore = () => store;
 
