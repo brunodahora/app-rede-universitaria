@@ -13,11 +13,13 @@ import { MaterialIcons } from '@expo/vector-icons';
 import _ from 'lodash';
 
 import { updateGroups, selectGroup } from '../store/actions';
-import { getGroups } from '../helpers/API';
+import { getGroupsPaginated } from '../helpers/API';
 import styles from './styles';
 import { colors } from '../helpers/Constants';
 
 import GroupItem from '../components/GroupItem';
+
+const convert = studies => studies.map(item => ({ ...item, key: item.id }));
 
 class GroupsList extends Component {
 
@@ -33,27 +35,33 @@ class GroupsList extends Component {
     };
 
     this.selectGroup = this.selectGroup.bind(this);
-    this.getList = this.getList.bind(this);
+    this.updateGroups = this.updateGroups.bind(this);
   }
 
   componentWillMount() {
-    getGroups()
-      .then((groups) => {
-        this.setState({
-          pages: groups.headers['x-wp-totalpages'],
-          lastPage: 1,
-          search: this.state.search,
-          list: groups.data,
-          groups: groups.data,
-        });
-        this.props.updateGroups(groups.data);
-      });
+    this.updateGroups();
   }
 
-  getList() {
-    return this.state.list ?
-      this.state.list.map(item => ({ ...item, key: item.id }))
-      : [];
+  updateGroups(page = 1) {
+    getGroupsPaginated(page)
+      .then((groups) => {
+        const mergedGroups = _.sortBy(_.unionWith(convert(groups.data), this.props.groups, _.isEqual), 'id');
+        this.setState({
+          pages: groups.headers['x-wp-totalpages'],
+          lastPage: page,
+          search: this.state.search,
+          list: !_.isEmpty(this.state.search) ?
+            mergedGroups.filter(item =>
+              item.title.rendered.toLowerCase().includes(this.state.search.toLowerCase()))
+            : mergedGroups,
+          groups: mergedGroups,
+        });
+        this.props.updateGroups(mergedGroups);
+        if (parseInt(groups.headers['x-wp-totalpages'], 10) !== page) {
+          const nextPage = page + 1;
+          this.updateGroups(nextPage);
+        }
+      });
   }
 
   selectGroup(group) {
@@ -75,51 +83,51 @@ class GroupsList extends Component {
           </View>
         }
         {!_.isEmpty(this.state.groups) &&
-          <FlatList
-            data={this.getList()}
-            ListEmptyComponent={
-              <View style={styles.body}>
-                <Text style={[styles.bodyText, styles.centerText]}>
-                  {'Nenhum grupo encontrado.'}
-                </Text>
-              </View>
-            }
-            ListHeaderComponent={
-              <View style={styles.searchbar}>
-                <MaterialIcons name="search" size={24} color={colors.gray} />
-                <TextInput
-                  style={{ flex: 1, marginLeft: 5, height: 40 }}
-                  onChangeText={(search) => {
-                    const list = this.state.groups.filter(item =>
-                      item.title.rendered.toLowerCase().includes(search.toLowerCase()));
-                    this.setState({
-                      ...this.state,
-                      list,
-                      search,
-                    });
-                  }}
-                  placeholder="Pesquise um grupo"
-                  value={this.state.search}
-                />
-              </View>
-            }
-            ItemSeparatorComponent={() => (
-              <View
-                style={{
-                  height: 1,
-                  width: '100%',
-                  backgroundColor: colors.gray,
+          <View>
+            <View style={styles.searchbar}>
+              <MaterialIcons name="search" size={24} color={colors.gray} />
+              <TextInput
+                style={{ flex: 1, marginLeft: 5, height: 40 }}
+                onChangeText={(search) => {
+                  const list = this.state.groups.filter(item =>
+                    item.title.rendered.toLowerCase().includes(search.toLowerCase()));
+                  this.setState({
+                    ...this.state,
+                    list,
+                    search,
+                  });
                 }}
+                placeholder="Pesquise um grupo"
+                value={this.state.search}
               />
-            )}
-            renderItem={data => (
-              <Touchable
-                onPress={() => this.selectGroup(data.item)}
-              >
-                <GroupItem group={data.item} />
-              </Touchable>
-            )}
-          />
+            </View>
+            <FlatList
+              data={this.state.list}
+              ListEmptyComponent={
+                <View style={styles.body}>
+                  <Text style={[styles.bodyText, styles.centerText]}>
+                    {'Nenhum grupo encontrado.'}
+                  </Text>
+                </View>
+              }
+              ItemSeparatorComponent={() => (
+                <View
+                  style={{
+                    height: 1,
+                    width: '100%',
+                    backgroundColor: colors.gray,
+                  }}
+                />
+              )}
+              renderItem={data => (
+                <Touchable
+                  onPress={() => this.selectGroup(data.item)}
+                >
+                  <GroupItem group={data.item} />
+                </Touchable>
+              )}
+            />
+          </View>
         }
       </View>
     );
