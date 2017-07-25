@@ -1,18 +1,25 @@
-import Reactotron, { trackGlobalErrors } from 'reactotron-react-native';
-import { reactotronRedux } from 'reactotron-redux';
-import sagaPlugin from 'reactotron-redux-saga';
-import apisaucePlugin from 'reactotron-apisauce';
+/* eslint-disable */
+let reactotron = {};
 
-import { NativeModules } from 'react-native';
-import url from 'url';
+if (__DEV__) {
+  const Reactotron = require('reactotron-react-native').default;
+  const { trackGlobalErrors } = require('reactotron-react-native');
+  const apisaucePlugin = require('reactotron-apisauce');
+  const { reactotronRedux } = require('reactotron-redux');
+  const sagaPlugin = require('reactotron-redux-saga');
 
-const { hostname } = url.parse(NativeModules.SourceCode.scriptURL);
+  const { NativeModules } = require('react-native');
+  const url = require('url');
 
-const reactotron = Reactotron
-  .configure({ name: 'Rede Universitária', host: hostname })
-  .useReactNative()
-  .use(trackGlobalErrors())
-  .use(reactotronRedux())
-  .use(apisaucePlugin())
-  .use(sagaPlugin());
+  const { hostname } = url.parse(NativeModules.SourceCode.scriptURL);
+
+  reactotron = Reactotron
+    .configure({ name: 'Rede Universitária', host: hostname })
+    .useReactNative()
+    .use(trackGlobalErrors())
+    .use(reactotronRedux())
+    .use(apisaucePlugin())
+    .use(sagaPlugin());
+}
+
 export default reactotron;
