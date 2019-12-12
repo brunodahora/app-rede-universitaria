@@ -1,6 +1,13 @@
-import { combineReducers } from 'redux'
-import AppReducer from './AppReducer'
+import { persistCombineReducers } from "redux-persist";
+import { AsyncStorage } from "react-native";
 
-export default combineReducers({
-  app: AppReducer,
-})
+import AppReducer from "./AppReducer";
+
+const persistConfig = {
+  key: "root",
+  storage: AsyncStorage
+};
+
+export default persistCombineReducers(persistConfig, {
+  app: AppReducer
+});

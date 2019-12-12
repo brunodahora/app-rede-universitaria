@@ -1,37 +1,32 @@
-import React from 'react';
-import { AsyncStorage } from 'react-native';
-import { Provider } from 'react-redux';
-import { persistStore } from 'redux-persist';
-import Sentry from 'sentry-expo';
-import createStore from './src/store/createStore';
-import rootSaga from './src/store/sagas';
-import { SENTRY_DSN } from './src/config';
+import React from "react";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import * as Sentry from "sentry-expo";
+import createStore from "./src/store/createStore";
+import rootSaga from "./src/store/sagas";
+import { SENTRY_DSN } from "./src/config";
 
-import Main from './src/Main';
+import Main from "./src/Main";
 
-const store = createStore();
+const { store, persistor, runSaga } = createStore();
 
-store.runSaga(rootSaga);
-persistStore(store, { storage: AsyncStorage }, () => {});
+runSaga(rootSaga);
 
 export const getStore = () => store;
 
-Sentry.config(SENTRY_DSN).install();
+Sentry.init({
+  dsn: SENTRY_DSN,
+  enableInExpoDevelopment: true,
+  debug: __DEV__
+});
 
 export default class App extends React.Component {
-  componentDidMount() {
-    /* eslint-disable no-undef */
-    /* eslint-disable global-require */
-    if (__DEV__) {
-      const Reactotron = require('./src/helpers/ReactotronConfig');
-      Reactotron.connect();
-    }
-  }
-
   render() {
     return (
       <Provider store={store}>
-        <Main />
+        <PersistGate loading={null} persistor={persistor}>
+          <Main />
+        </PersistGate>
       </Provider>
     );
   }

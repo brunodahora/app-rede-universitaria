@@ -1,6 +1,6 @@
-import React from 'react';
-import MainDrawerNavigator from './navigation/Navigator';
+import { createAppContainer } from "react-navigation";
+import MainDrawerNavigator from "./navigation/Navigator";
 
-const Main = () => (<MainDrawerNavigator />);
+const Main = createAppContainer(MainDrawerNavigator);
 
 export default Main;

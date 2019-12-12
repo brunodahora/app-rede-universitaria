@@ -1,59 +1,59 @@
-import React from 'react';
-import { DrawerNavigator } from 'react-navigation';
-import { MaterialIcons } from '@expo/vector-icons';
-import Drawer from '../components/Drawer';
-import HomeNavigator from './HomeNavigator';
-import StudiesNavigator from './StudiesNavigator';
-import GroupsNavigator from './GroupsNavigator';
-import AboutNavigator from './AboutNavigator';
-import { colors } from '../helpers/Constants';
+import React from "react";
+import { createDrawerNavigator } from "react-navigation-drawer";
+import { MaterialIcons } from "@expo/vector-icons";
+import Drawer from "../components/Drawer";
+import HomeNavigator from "./HomeNavigator";
+import StudiesNavigator from "./StudiesNavigator";
+import GroupsNavigator from "./GroupsNavigator";
+import AboutNavigator from "./AboutNavigator";
+import { colors } from "../helpers/Constants";
 
-const MainDrawerNavigator = DrawerNavigator(
+const MainDrawerNavigator = createDrawerNavigator(
   {
     Home: {
       screen: HomeNavigator,
       navigationOptions: {
-        drawerLabel: 'Home',
+        drawerLabel: "Home",
         drawerIcon: ({ tintColor }) => (
           <MaterialIcons name="home" size={24} color={tintColor} />
-        ),
-      },
+        )
+      }
     },
     StudiesList: {
       screen: StudiesNavigator,
       navigationOptions: {
-        drawerLabel: 'Estudos',
+        drawerLabel: "Estudos",
         drawerIcon: ({ tintColor }) => (
           <MaterialIcons name="insert-drive-file" size={24} color={tintColor} />
-        ),
-      },
+        )
+      }
     },
     GroupsList: {
       screen: GroupsNavigator,
       navigationOptions: {
-        drawerLabel: 'Grupos',
+        drawerLabel: "Grupos",
         drawerIcon: ({ tintColor }) => (
           <MaterialIcons name="group" size={24} color={tintColor} />
-        ),
-      },
+        )
+      }
     },
     About: {
       screen: AboutNavigator,
       navigationOptions: {
-        drawerLabel: 'Sobre a Rede',
+        drawerLabel: "Sobre a Rede",
         drawerIcon: ({ tintColor }) => (
           <MaterialIcons name="info" size={24} color={tintColor} />
-        ),
-      },
-    },
+        )
+      }
+    }
   },
   {
-    contentComponent: props => <Drawer {...props} />,
+    contentComponent: Drawer,
     contentOptions: {
       activeTintColor: colors.gray,
-      inactiveTintColor: colors.white,
-    },
-  },
+      inactiveTintColor: colors.white
+    }
+  }
 );
 
 export default MainDrawerNavigator;
