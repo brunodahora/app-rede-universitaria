@@ -11,16 +11,14 @@ export default HomeNavigator = createStackNavigator({
     navigationOptions: ({ navigation }) => ({
       title: "Home",
       headerLeft: (
-        <Touchable
-          onPress={() => toggleDrawer();}
-        >
+        <TouchableOpacity onPress={() => toggleDrawer()}>
           <MaterialIcons
             name="menu"
             size={24}
             color={colors.white}
             style={{ margin: 10 }}
           />
-        </Touchable>
+        </TouchableOpacity>
       ),
       headerTintColor: colors.white,
       headerStyle: {

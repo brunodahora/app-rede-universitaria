@@ -19,7 +19,7 @@ const StudiesNavigator = createStackNavigator({
             color={colors.white}
             style={{ margin: 10 }}
           />
-        </Touchable>
+        </TouchableOpacity>
       ),
       headerTintColor: colors.white,
       headerStyle: {
