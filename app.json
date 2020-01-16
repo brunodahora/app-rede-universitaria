@@ -5,23 +5,29 @@
     "icon": "./src/assets/imgs/app_logo.png",
     "privacy": "unlisted",
     "version": "1.0.0",
-    "sdkVersion": "18.0.0",
     "primaryColor": "#FFC107",
     "androidStatusBar": {
       "barStyle": "light-content",
       "backgroundColor": "#c79100"
     },
-    "loading": {
-      "backgroundColor": "#FFC107",
-      "icon": "./src/assets/imgs/logo.png",
-      "hideExponentText": true
-    },
+    "sdkVersion": "36.0.0",
+    "platforms": ["ios", "android", "web"],
     "ios": {
-      "bundleIdentifier": "org.redeuniversitaria"
+      "bundleIdentifier": "org.redeuniversitaria",
+      "supportsTablet": true
     },
     "android": {
       "package": "org.redeuniversitaria"
     },
+    "orientation": "portrait",
+    "splash": {
+      "image": "./src/assets/imgs/logo.png",
+      "backgroundColor": "#FFC107"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
     "packagerOpts": {
       "assetExts": ["ttf"]
     },

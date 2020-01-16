@@ -1,7 +1,7 @@
-import React from 'react';
-import { View, ScrollView, Image } from 'react-native';
-import { DrawerItems } from 'react-navigation';
-import styles from './styles';
+import React from "react";
+import { ScrollView, Image } from "react-native";
+import { DrawerNavigatorItems } from "react-navigation-drawer";
+import styles from "./styles";
 
 /* eslint-disable global-require */
 const DrawerContentComponent = props => (
@@ -9,9 +9,9 @@ const DrawerContentComponent = props => (
     <Image
       resizeMode="contain"
       style={styles.logo}
-      source={require('../assets/imgs/logo-rede.png')}
+      source={require("../assets/imgs/logo-rede.png")}
     />
-    <DrawerItems {...props} />
+    <DrawerNavigatorItems {...props} />
   </ScrollView>
 );
 
