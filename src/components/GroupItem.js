@@ -7,7 +7,7 @@ const clearHtml = (string) => string.replace("&#8211;", "-");
 
 const GroupItem = (props) => (
   <View style={[styles.container, { padding: 10 }]}>
-    <Text style={styles.listTitle}>{clearHtml(props.group.nome)}</Text>
+    <Text style={styles.listTitle}>{clearHtml(props.group.acf.nome)}</Text>
   </View>
 );
 GroupItem.propTypes = {

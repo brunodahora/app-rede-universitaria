@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text } from "react-native";
 import PropTypes from "prop-types";
-import HTMLView from "react-native-htmlview";
 import styles from "./styles";
 
 const StudyItem = (props) => (

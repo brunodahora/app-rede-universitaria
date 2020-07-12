@@ -4,9 +4,9 @@ import {
   Text,
   ActivityIndicator,
   FlatList,
-  TextInput
+  TextInput,
 } from "react-native";
-import { TouchableOpacity } from "react-native";
+import Touchable from "react-native-platform-touchable";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -19,7 +19,7 @@ import { colors } from "../helpers/Constants";
 
 import StudyItem from "../components/StudyItem";
 
-const convert = studies => studies.map(item => ({ ...item, key: item.id }));
+const convert = (studies) => studies.map((item) => ({ ...item, key: item.id }));
 
 class StudiesList extends Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class StudiesList extends Component {
       lastPage: 1,
       studies: props.studies,
       list: props.studies,
-      search: ""
+      search: "",
     };
 
     this.updateStudies = this.updateStudies.bind(this);
@@ -42,7 +42,7 @@ class StudiesList extends Component {
   }
 
   updateStudies(page = 1) {
-    getStudiesPaginated(page).then(studies => {
+    getStudiesPaginated(page).then((studies) => {
       const mergedStudies = _.sortBy(
         _.unionWith(convert(studies.data), this.props.studies, _.isEqual),
         "id"
@@ -52,13 +52,13 @@ class StudiesList extends Component {
         lastPage: page,
         search: this.state.search,
         list: !_.isEmpty(this.state.search)
-          ? mergedStudies.filter(item =>
+          ? mergedStudies.filter((item) =>
               item.title.rendered
                 .toLowerCase()
                 .includes(this.state.search.toLowerCase())
             )
           : mergedStudies,
-        studies: mergedStudies
+        studies: mergedStudies,
       });
       this.props.updateStudies(mergedStudies);
       if (parseInt(studies.headers["x-wp-totalpages"], 10) !== page) {
@@ -92,8 +92,8 @@ class StudiesList extends Component {
               <MaterialIcons name="search" size={24} color={colors.gray} />
               <TextInput
                 style={{ flex: 1, marginLeft: 5, height: 40 }}
-                onChangeText={search => {
-                  const list = this.state.studies.filter(item =>
+                onChangeText={(search) => {
+                  const list = this.state.studies.filter((item) =>
                     item.title.rendered
                       .toLowerCase()
                       .includes(search.toLowerCase())
@@ -101,7 +101,7 @@ class StudiesList extends Component {
                   this.setState({
                     ...this.state,
                     list,
-                    search
+                    search,
                   });
                 }}
                 placeholder="Pesquise pelo título"
@@ -122,11 +122,11 @@ class StudiesList extends Component {
                   style={{
                     height: 1,
                     width: "100%",
-                    backgroundColor: colors.gray
+                    backgroundColor: colors.gray,
                   }}
                 />
               )}
-              renderItem={data => (
+              renderItem={(data) => (
                 <Touchable onPress={() => this.selectStudy(data.item)}>
                   <StudyItem study={data.item} />
                 </Touchable>
@@ -142,10 +142,10 @@ StudiesList.propTypes = {
   studies: PropTypes.array,
   updateStudies: PropTypes.func.isRequired,
   selectStudy: PropTypes.func.isRequired,
-  navigation: PropTypes.object.isRequired
+  navigation: PropTypes.object.isRequired,
 };
 StudiesList.defaultProps = {
-  studies: []
+  studies: [],
 };
 
 const mapStateToProps = ({ app }) => {

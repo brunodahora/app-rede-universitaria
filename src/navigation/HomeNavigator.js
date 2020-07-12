@@ -11,7 +11,7 @@ export default HomeNavigator = createStackNavigator({
     navigationOptions: ({ navigation }) => ({
       title: "Home",
       headerLeft: (
-        <TouchableOpacity onPress={() => toggleDrawer()}>
+        <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
           <MaterialIcons
             name="menu"
             size={24}
@@ -22,8 +22,8 @@ export default HomeNavigator = createStackNavigator({
       ),
       headerTintColor: colors.white,
       headerStyle: {
-        backgroundColor: colors.primary
-      }
-    })
-  }
+        backgroundColor: colors.primary,
+      },
+    }),
+  },
 });

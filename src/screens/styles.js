@@ -58,8 +58,8 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
   },
   logo: {
-    width: 50,
-    height: 50,
+    width: 150,
+    height: 150,
   },
 });
 

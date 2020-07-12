@@ -1,8 +1,9 @@
 import React from "react";
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, Image } from "react-native";
 import PropTypes from "prop-types";
 import HTMLView from "react-native-htmlview";
 import { connect } from "react-redux";
+import isEmpty from "lodash/isEmpty";
 import styles from "./styles";
 
 const clearHtml = (string) => string.replace("&#8211;", "-");
@@ -15,7 +16,6 @@ const GroupDetail = (props) => {
       faculdade__universidade,
       horario,
       dia_da_semana,
-      apresentacao_do_grupo,
       instagram,
       whatsapp,
       logo_do_grupo,
@@ -40,7 +40,9 @@ const GroupDetail = (props) => {
         <Text style={[styles.labelText, { marginBottom: 20 }]}>
           Faculdade / Universidade
         </Text>
-        <Text style={[styles.bodyText, { marginBottom: 20 }]}>
+        <Text
+          style={[styles.bodyText, styles.centerText, { marginBottom: 20 }]}
+        >
           {faculdade__universidade}
         </Text>
         <Text style={[styles.labelText, { marginBottom: 20 }]}>
@@ -51,7 +53,7 @@ const GroupDetail = (props) => {
         </Text>
         <Text style={[styles.labelText, { marginBottom: 20 }]}>Horário</Text>
         <Text style={[styles.bodyText, { marginBottom: 20 }]}>{horario}</Text>
-        {whatsapp && (
+        {!isEmpty(whatsapp) && (
           <React.Fragment>
             <Text style={[styles.labelText, { marginBottom: 20 }]}>
               Whatsapp
@@ -61,7 +63,7 @@ const GroupDetail = (props) => {
             </Text>
           </React.Fragment>
         )}
-        {instagram && (
+        {!isEmpty(instagram) && (
           <React.Fragment>
             <Text style={[styles.labelText, { marginBottom: 20 }]}>
               Instagram
