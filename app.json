@@ -10,8 +10,11 @@
       "barStyle": "light-content",
       "backgroundColor": "#c79100"
     },
-    "sdkVersion": "36.0.0",
-    "platforms": ["ios", "android", "web"],
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "ios": {
       "bundleIdentifier": "org.redeuniversitaria",
       "supportsTablet": true
@@ -27,10 +30,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
-    "packagerOpts": {
-      "assetExts": ["ttf"]
-    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "hooks": {
       "postPublish": [
         {
