@@ -11,7 +11,11 @@
       "backgroundColor": "#c79100"
     },
     "sdkVersion": "36.0.0",
-    "platforms": ["ios", "android", "web"],
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "ios": {
       "bundleIdentifier": "org.redeuniversitaria",
       "supportsTablet": true
@@ -27,9 +31,13 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "packagerOpts": {
-      "assetExts": ["ttf"]
+      "assetExts": [
+        "ttf"
+      ]
     },
     "hooks": {
       "postPublish": [
@@ -42,6 +50,7 @@
           }
         }
       ]
-    }
+    },
+    "description": ""
   }
 }
