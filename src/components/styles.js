@@ -1,10 +1,10 @@
-import { StyleSheet, Dimensions, Platform } from 'react-native';
-import { colors } from '../helpers/Constants';
+import { StyleSheet, Dimensions, Platform } from "react-native";
+import { colors } from "../helpers/Constants";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: Dimensions.get('window').width,
+    width: Dimensions.get("window").width,
   },
   drawerContainer: {
     flex: 1,
@@ -16,18 +16,21 @@ const styles = StyleSheet.create({
     }),
   },
   logo: {
-    width: Dimensions.get('window').width,
+    width: Dimensions.get("window").width,
     margin: 10,
-    alignSelf: 'center',
+    alignSelf: "center",
   },
   listTitle: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
+    fontSize: 16,
+  },
+  listContent: {
     fontSize: 16,
   },
   item: {
     margin: 10,
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
   },
 });
 

@@ -7,11 +7,12 @@ import styles from "./styles";
 const StudyItem = (props) => (
   <View style={[styles.container, { padding: 10 }]}>
     <Text style={styles.listTitle}>{props.study.title.rendered}</Text>
-    <HTMLView
-      value={props.study.content.rendered
+    <Text style={styles.listContent}>
+      {props.study.content.rendered
         .replace(new RegExp("\\n$"), "")
+        .replace(/<[^>]*>?/gm, "")
         .substring(0, 100)}
-    />
+    </Text>
   </View>
 );
 StudyItem.propTypes = {
