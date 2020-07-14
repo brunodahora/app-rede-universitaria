@@ -9,7 +9,7 @@ const DrawerContentComponent = props => (
     <Image
       resizeMode="contain"
       style={styles.logo}
-      source={require("../assets/imgs/logo-rede.png")}
+      source={require("../assets/imgs/logo-branca-lateral.png")}
     />
     <DrawerNavigatorItems {...props} />
   </ScrollView>

@@ -14,12 +14,12 @@ const About = () => (
       <Image
         resizeMode="contain"
         style={{ height: 200, margin: 10 }}
-        source={require('../assets/imgs/logo.png')}
+        source={require('../assets/imgs/logo-preta.png')}
       />
       <Text style={styles.headerText}>
         {'Missão, Valores e Visão'}
       </Text>
-      <Text style={[styles.bodyText, styles.justifyText, { margin: 10 }]}>
+      <Text style={[styles.bodyTextAbout, styles.justifyText, { margin: 40 }]}>
         {'A história de boa parte dos trabalhos com jovens cristãos nas universidades tem uma tendência de começar muito bem, mas com o tempo, ir enfraquecendo até os alunos que participam se formarem, ou o projeto simplesmente fechar. Salvo, claro algumas excessões.'}
         {'\n\n'}
         {'Hoje em algumas universidades existem diversos projetos de trabalho com jovens cristãos de diferentes denominações no mesmo campus. Entendemos que não precisamos competir no Reino de Deus, mas sim cooperar para alcançar as universidades. Uma igreja, ou até uma denominação sozinha pode fazer um trabalho muito bom. Mas diversas igrejas de denominações diferentes em unidade podem fazer um trabalho fantástico. Ao deixar um pouco de lado alguns dogmas e focar naquilo que realmente nos une.'}

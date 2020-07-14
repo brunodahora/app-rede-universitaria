@@ -24,10 +24,7 @@ const GroupDetail = (props) => {
 
   return (
     <ScrollView style={{ flex: 1, backgroundColor: "white" }}>
-      <View style={[styles.container, { padding: 10 }]}>
-        <Text style={[styles.headerText, { marginBottom: 20 }]}>
-          {clearHtml(nome)}
-        </Text>
+      <View style={[styles.container, { padding: 10, flexDirection:"column", paddingTop:0 }]}>
         {logo_do_grupo && (
           <Image
             style={styles.logo}
@@ -36,43 +33,50 @@ const GroupDetail = (props) => {
             }}
           />
         )}
-        <HTMLView value={apresentacao_do_grupo} />
-        <Text style={[styles.labelText, { marginBottom: 20 }]}>
-          Faculdade / Universidade
+        <Text style={[styles.headerText, { marginBottom: 10 }]}>
+          {clearHtml(nome)}
         </Text>
+        <HTMLView value={apresentacao_do_grupo} />
+        <Text style={[styles.labelTextGroup]}>Onde?</Text>
+        <Text style={[styles.subTitle]}>( Faculdade/Universidade )</Text>
         <Text
-          style={[styles.bodyText, styles.centerText, { marginBottom: 20 }]}
+          style={[styles.bodyTextGroup, styles.centerText]}
         >
           {faculdade__universidade}
         </Text>
-        <Text style={[styles.labelText, { marginBottom: 20 }]}>
-          Dia da semana
+        <Text style={[styles.labelTextGroup]}>
+          Quando?
         </Text>
-        <Text style={[styles.bodyText, { marginBottom: 20 }]}>
+        <Text style={[styles.bodyTextGroup]}>
           {dia_da_semana}
         </Text>
-        <Text style={[styles.labelText, { marginBottom: 20 }]}>Horário</Text>
-        <Text style={[styles.bodyText, { marginBottom: 20 }]}>{horario}</Text>
+        <Text style={[styles.labelTextGroup]}>Que horas?</Text>
+        <Text style={[styles.bodyTextGroup, { marginBottom: 10 }]}>{horario}</Text>
         {!isEmpty(whatsapp) && (
           <React.Fragment>
-            <Text style={[styles.labelText, { marginBottom: 20 }]}>
+            <Text style={[styles.labelTextGroup, { marginBottom: 20 }]}>
               Whatsapp
             </Text>
-            <Text style={[styles.bodyText, { marginBottom: 20 }]}>
+            <Text style={[styles.bodyTextGroup, { marginBottom: 20 }]}>
               {whatsapp}
             </Text>
           </React.Fragment>
         )}
         {!isEmpty(instagram) && (
           <React.Fragment>
-            <Text style={[styles.labelText, { marginBottom: 20 }]}>
+            <Text style={[styles.labelTextGroup, { marginBottom: 20 }]}>
               Instagram
             </Text>
-            <Text style={[styles.bodyText, { marginBottom: 20 }]}>
+            <Text style={[styles.bodyTextGroup, { marginBottom: 20 }]}>
               {instagram}
             </Text>
           </React.Fragment>
         )}
+        <Image
+            resizeMode="contain"
+            style={{ height: 200, margin: 10 }}
+            source={require('../assets/imgs/group-persons.png')}
+        />
       </View>
     </ScrollView>
   );
