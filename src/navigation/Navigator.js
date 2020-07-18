@@ -50,8 +50,8 @@ const MainDrawerNavigator = createDrawerNavigator(
   {
     contentComponent: Drawer,
     contentOptions: {
-      activeTintColor: colors.gray,
-      inactiveTintColor: colors.white
+      activeTintColor: colors.white,
+      inactiveTintColor: colors.gray
     }
   }
 );

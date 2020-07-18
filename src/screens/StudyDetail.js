@@ -2,7 +2,7 @@ import React from 'react';
 import {
   View,
   Text,
-  ScrollView,
+  ScrollView, Image,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import HTMLView from 'react-native-htmlview';
@@ -13,12 +13,21 @@ const StudyDetail = (props) => {
   const { title, content } = props.selectedStudy;
 
   return (
-    <ScrollView>
-      <View style={[styles.container, { padding: 10 }]}>
-        <Text style={[styles.headerText, { marginBottom: 20 }]}>{title.rendered}</Text>
-        <HTMLView value={content.rendered} />
-      </View>
-    </ScrollView>
+   <View style={styles.container}>
+     <ScrollView>
+       <Text style={[styles.headerText, { marginBottom: 30, marginTop: 30 }]}>{title.rendered}</Text>
+       <View style={[styles.container, { padding: 10 }]}>
+         <HTMLView stylesheet={[styles.bodyTextAbout, styles.justifyContent, { margin: 40 }]}
+                   value={content.rendered} />
+       </View>
+     </ScrollView>
+     <View >
+       <Image
+           resizeMode="contain"
+           style={{ height: 150, margin: 10}}
+           source={require('../assets/imgs/study-person.jpeg')}
+       /></View>
+   </View>
   );
 };
 StudyDetail.propTypes = {
