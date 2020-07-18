@@ -10,14 +10,11 @@
       "barStyle": "light-content",
       "backgroundColor": "#212C36"
     },
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
+    "platforms": ["ios", "android", "web"],
     "ios": {
       "bundleIdentifier": "com.vemprarede",
-      "supportsTablet": true
+      "supportsTablet": true,
+      "icon": "./src/assets/imgs/app-logo-preta-ios.png"
     },
     "android": {
       "package": "com.vemprarede"
@@ -30,9 +27,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "hooks": {
       "postPublish": [
         {
