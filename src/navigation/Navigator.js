@@ -16,8 +16,8 @@ const MainDrawerNavigator = createDrawerNavigator(
         drawerLabel: "Home",
         drawerIcon: ({ tintColor }) => (
           <MaterialIcons name="home" size={24} color={tintColor} />
-        )
-      }
+        ),
+      },
     },
     StudiesList: {
       screen: StudiesNavigator,
@@ -25,8 +25,8 @@ const MainDrawerNavigator = createDrawerNavigator(
         drawerLabel: "Estudos",
         drawerIcon: ({ tintColor }) => (
           <MaterialIcons name="insert-drive-file" size={24} color={tintColor} />
-        )
-      }
+        ),
+      },
     },
     GroupsList: {
       screen: GroupsNavigator,
@@ -34,8 +34,8 @@ const MainDrawerNavigator = createDrawerNavigator(
         drawerLabel: "Grupos",
         drawerIcon: ({ tintColor }) => (
           <MaterialIcons name="group" size={24} color={tintColor} />
-        )
-      }
+        ),
+      },
     },
     About: {
       screen: AboutNavigator,
@@ -43,16 +43,16 @@ const MainDrawerNavigator = createDrawerNavigator(
         drawerLabel: "Sobre a Rede",
         drawerIcon: ({ tintColor }) => (
           <MaterialIcons name="info" size={24} color={tintColor} />
-        )
-      }
-    }
+        ),
+      },
+    },
   },
   {
     contentComponent: Drawer,
     contentOptions: {
       activeTintColor: colors.white,
-      inactiveTintColor: colors.gray
-    }
+      inactiveTintColor: colors.silver,
+    },
   }
 );
 

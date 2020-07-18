@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "Rede Universitária",
-    "slug": "rede-universitaria",
+    "name": "Vem pra Rede",
+    "slug": "vem-pra-rede",
     "icon": "./src/assets/imgs/app-logo-preta.png",
     "privacy": "unlisted",
     "version": "1.0.0",
     "primaryColor": "#1c1c1b",
     "androidStatusBar": {
       "barStyle": "light-content",
-      "backgroundColor": "#c79100"
+      "backgroundColor": "#212C36"
     },
     "platforms": [
       "ios",
@@ -16,11 +16,11 @@
       "web"
     ],
     "ios": {
-      "bundleIdentifier": "org.redeuniversitaria",
+      "bundleIdentifier": "com.vemprarede",
       "supportsTablet": true
     },
     "android": {
-      "package": "org.redeuniversitaria"
+      "package": "com.vemprarede"
     },
     "orientation": "portrait",
     "splash": {
