@@ -4,7 +4,7 @@
     "slug": "vem-pra-rede",
     "icon": "./src/assets/imgs/app-logo-preta.png",
     "privacy": "unlisted",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "primaryColor": "#1c1c1b",
     "androidStatusBar": {
       "barStyle": "light-content",
@@ -12,12 +12,14 @@
     },
     "platforms": ["ios", "android", "web"],
     "ios": {
-      "bundleIdentifier": "com.vemprarede",
+      "bundleIdentifier": "org.redeuniversitaria",
       "supportsTablet": true,
-      "icon": "./src/assets/imgs/app-logo-preta-ios.png"
+      "icon": "./src/assets/imgs/app-logo-preta-ios.png",
+      "buildNumber": "10100"
     },
     "android": {
-      "package": "com.vemprarede"
+      "package": "com.vemprarede",
+      "versionCode": 10100
     },
     "orientation": "portrait",
     "splash": {
