@@ -10,7 +10,11 @@
       "barStyle": "light-content",
       "backgroundColor": "#212C36"
     },
-    "platforms": ["ios", "android", "web"],
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "ios": {
       "bundleIdentifier": "org.redeuniversitaria",
       "supportsTablet": true,
@@ -29,7 +33,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "hooks": {
       "postPublish": [
         {
